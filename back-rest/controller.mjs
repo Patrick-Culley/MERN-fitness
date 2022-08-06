@@ -13,3 +13,6 @@ app.use(express.json());
 
 // DELETE controller **********************************************
 
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}...`);
+});
