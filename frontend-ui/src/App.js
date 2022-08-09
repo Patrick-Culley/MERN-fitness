@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import HomePage from './pages/HomePage.js'; 
 import Navigation from './components/Navigation';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 function App() {
@@ -17,11 +17,11 @@ function App() {
       <p>Track and log exercise routines.</p>
       <Navigation /> 
     </header> 
-    {/* <main>
-      <Route path="/" exact>
+    <main>
+      <Route path="/">
         <HomePage setWorkout={setWorkout}/>
       </Route>
-    </main> */}
+    </main>
     </Router>
     </>
   );

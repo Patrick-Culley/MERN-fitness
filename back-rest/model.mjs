@@ -44,5 +44,10 @@ const findWorkout  = async() => {
     return locate.exec() 
 }
 
+const findExerciseById = async (_id) => {
+    const query = Exercise.findById(_id);
+    return query.exec();
+}
 
-export {createWorkout, findWorkout} 
+
+export {createWorkout, findWorkout, findExerciseById} 

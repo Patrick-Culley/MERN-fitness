@@ -35,6 +35,21 @@ app.get('/exercises', (req, res) => {
   })
 })
 
+app.get('/exercises/:_id', (req, res) => {
+  const exerciseId = req.params._id; 
+  exercises.findExerciseById(exerciseId)
+    .then(exercises => {
+      if (exercises !== null) {
+        res.json(exercises)
+      } else {
+          res.status(404).json({ Error: 'Document not found' });
+      }  
+    })
+    .catch(error => {
+      res.status(400).json({ Error: 'Request to retrieve document failed' });
+  });
+})
+
 // UPDATE/PUT controller ******************************************
 
 
