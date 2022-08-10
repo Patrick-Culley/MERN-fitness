@@ -17,13 +17,13 @@ function HomePage({setWorkout}){
     }
 
     // UPDATE a routine ************************************
-    const onEditExercise = async exercise => {
+    const onEdit = async exercise => {
         setWorkout(exercise);
         history.push("/edit-exercise");
     }
 
     //Delete a routine **************************************
-    const onDeleteExercise = async _id => {
+    const onDelete = async _id => {
         const response = await fetch(`/exercises/${_id}`, { method: 'DELETE' });
         if (response.status === 204) {
             const getResponse = await fetch('/exercises');
@@ -33,17 +33,17 @@ function HomePage({setWorkout}){
             console.error(`Failed to delete movie with _id = ${_id}, status code = ${response.status}`)
         }
     } 
-
-
+    
+    
     useEffect(() => {
         loadExercise();
     }, []);
 
     return (
         <>
-        <h1>Welcome to the fitness tracker homepage!</h1>
-        <p>Here you may track your progress</p>
-        <Table exercise={exercise} onDeleteExercise={onDeleteExercise} onEditExercise={onEditExercise}/>
+        <h2>Welome to the home page!</h2>
+        <p>Begin by entering your exercise routine below:</p>
+        <Table exercise={exercise} onDelete={onDelete} onEdit={onEdit}/>
         </>
     );
 }

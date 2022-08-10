@@ -7,7 +7,7 @@ mongoose.connect(
 );
 const db = mongoose.connection;
 
-db.once("open", (err) => {
+db.once('open', (err) => {
     if(err){
         res.status(500).json({ error: '500:Connection to the server failed.' });
     } else  {
@@ -21,11 +21,11 @@ const fitnessSchema = mongoose.Schema({
 	reps: { type: Number, required: true },
 	weight: { type: Number, required: true },
     unit: { type: String, required: true },
-    date: { type: String, required: true }, 
+    date: { type: String, required: true }
 });
 
 // Compile the model from the schema.
-const Exercise = mongoose.model("Exercise", fitnessSchema);
+const Exercise = mongoose.model('Exercise', fitnessSchema);
 
 // CreateExercise 
 const createWorkout = async (name, reps, weight, unit, date) => {
@@ -49,5 +49,10 @@ const findExerciseById = async (_id) => {
     return query.exec();
 }
 
+const deleteById = async (_id) => {
+    const result = await Exercise.deleteOne({_id: _id});
+    return result.deletedCount;
+};
 
-export {createWorkout, findWorkout, findExerciseById} 
+
+export {createWorkout, findWorkout, findExerciseById, deleteById} 

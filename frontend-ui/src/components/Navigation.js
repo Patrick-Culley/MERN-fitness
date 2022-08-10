@@ -5,6 +5,7 @@ function Navigation(){
         <>
             <nav>
                 <Link to={"/"}>Home</Link>
+                <Link to={"/create-exercise"}>Create</Link>
             </nav>
         </>
     );

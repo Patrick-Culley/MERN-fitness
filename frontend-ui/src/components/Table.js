@@ -1,10 +1,9 @@
 import React from 'react';
 import Row from './Row'; 
 
-function Table({ exercises, onDelete, onEdit }){
+function Table({ exercise, onDelete, onEdit }){
     return (
         <table>
-            <caption>Add and Edit </caption>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -12,10 +11,12 @@ function Table({ exercises, onDelete, onEdit }){
                     <th>Weight</th>
                     <th>Unit</th>
                     <th>Date</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
-            {/* <tbody>
-                {exercises.map((exercise, i) =>
+            <tbody>
+                {exercise.map((exercise, i) =>
                     <Row 
                         exercise={exercise}
                         key={i}
@@ -23,7 +24,7 @@ function Table({ exercises, onDelete, onEdit }){
                         onEdit={onEdit}
                     />
                 )}
-            </tbody> */}
+            </tbody>
         </table>
     )
 }

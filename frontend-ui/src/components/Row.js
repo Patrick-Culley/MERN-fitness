@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdDeleteForever, MdModeEdit } from 'react-icons/md'
+import { MdDeleteForever, MdModeEdit } from 'react-icons/md';
 
 function Row({ exercise, onDelete, onEdit }) {
   return (
