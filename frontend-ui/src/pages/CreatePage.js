@@ -50,7 +50,7 @@ export function CreateExercise() {
                 value={reps}
                 onChange ={e => setReps(e.target.value)}/>
 
-            <label for="weight">Reps</label>
+            <label for="weight">Weight</label>
             <input 
                 id="weight"
                 type="number"
@@ -70,7 +70,7 @@ export function CreateExercise() {
             <input 
                 id="date"
                 type="text"
-                placeholder="weight"
+                placeholder="date"
                 value={date}
                 onChange ={e => setDate(e.target.value)}/>
 

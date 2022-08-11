@@ -39,20 +39,35 @@ const createWorkout = async (name, reps, weight, unit, date) => {
     return workout.save();
 }
 
+// RETRIEVE ALL EXERCISES ********************************* 
 const findWorkout  = async() => {
     const locate = Exercise.find() 
     return locate.exec() 
 }
 
+// FIND EXERCISE BY ID ************************************ 
 const findExerciseById = async (_id) => {
     const query = Exercise.findById(_id);
     return query.exec();
 }
 
+// DELETE ************************************************ 
 const deleteById = async (_id) => {
     const result = await Exercise.deleteOne({_id: _id});
     return result.deletedCount;
 };
 
+// UPDATE *************************************************
+const replaceExercise = async (_id, name, reps, weight, unit, date) => {
+    const result = await Exercise.replaceOne({_id: _id }, {
+        name: name, 
+        reps: reps, 
+        weight: weight,
+        unit: unit,
+        date: date,
+    });
+    return result.modifiedCount;
+}
 
-export {createWorkout, findWorkout, findExerciseById, deleteById} 
+
+export {createWorkout, findWorkout, findExerciseById, deleteById, replaceExercise} 
